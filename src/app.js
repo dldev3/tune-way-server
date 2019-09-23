@@ -3,16 +3,16 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 
-const PORT = 8081;
+const PORT = 3344;
 const app = express();
 
-app.use(morgan('dev'));
+app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/status',(req,res) => {
+app.post('/register',(req,res) => {
     res.send({
-        message:'Hello World'
+        message:`${req.body.email} is registered`
     })
 });
 
